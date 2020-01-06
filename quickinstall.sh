@@ -1,70 +1,40 @@
+#!/bin/bash
+
 # Quickly install my frequently used software
 
-echo "Adding Repositories"
-sudo add-apt-repository ppa:snwh/pulp
-sudo add-apt-repository "deb http://linux.dropbox.com/ubuntu precise main"
-sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys BBEBDCB318AD50EC6865090613B00F1FD2C19886
-echo deb http://repository.spotify.com stable non-free | sudo tee /etc/apt/sources.list.d/spotify.list
+if [[ $EUID -ne 0 ]]; then
+   echo "Use sudo to run this script. Type sudo ./quickinstall.sh" 
+   exit 1
+fi
 
 echo "Updating Repository List"
-sudo apt-get update
+apt-get update -y -q
 
-echo "Installing Chromium"
-sudo apt-get install chromium-browser
+echo "Installing default GNOME"
+apt-get install -y -q gnome-session
 
-echo "Installing Thunderbird"
-sudo apt-get install thunderbird
+echo "Using the default GNOME GDM"
+update-alternatives --set gdm3.css /usr/share/gnome-shell/theme/gnome-shell.css 
 
-echo "Installing Dropbox"
-sudo apt-get install dropbox
+echo "Removing the Amazon launcher"
+apt purge -y ubuntu-web-launchers 
+
+echo "Installing CLion"
+snap install --classic clion
 
 echo "Installing Spotify"
-sudo apt-get install spotify-client
+snap install spotify
 
 echo "Installing Steam"
-sudo apt-get install steam
+apt-get install -y -q steam-installer
 
 echo "Installing VLC Media Player"
-sudo apt-get install vlc
+apt-get install -y -q vlc
 
-echo "Installing Roboto fonts"
-sudo apt-get install fonts-roboto
+echo "Applying a nice wallpaper"
+wget https://github.com/atoft/wallpaper/raw/master/wallpaper.png -P ~/Pictures
+gsettings set org.gnome.desktop.background picture-uri "file:///$HOME/Pictures/wallpaper.png"
 
-echo "Downloading GNOME Extensions"
-sudo wget -O /usr/local/sbin/shell-extension-install https://raw.githubusercontent.com/NicolasBernaerts/ubuntu-scripts/master/ubuntugnome/gnome-extension/shell-extension-install
-sudo chmod +x /usr/local/sbin/shell-extension-install
+echo "Done. To use GNOME, restart the PC and select GNOME from the cog dropdown in the login screen."
 
-#User themes
-shell-extension-install 3.18 19
-#Dash to Dock
-shell-extension-install 3.18 307
-#Media player indicator
-shell-extension-install 3.18 55
-#TopIcons Plus
-shell-extension-install 3.18 1031
-
-
-echo "Installing Paper Theme"
-sudo apt-get install paper-icon-theme paper-gtk-theme
-
-echo "Applying Paper Theme"
-gsettings set org.gnome.desktop.interface gtk-theme "Paper"
-gsettings set org.gnome.shell.extensions.user-theme name "Paper"
-gsettings set org.gnome.desktop.interface icon-theme "Paper"
-
-
-
-echo "Restarting the GNOME Shell"
-gnome-shell -r &
-echo "Setting Font"
-gsettings set org.gnome.desktop.interface font-name "Roboto"
-echo "Restarting the GNOME Shell"
-gnome-shell -r &
-
-echo "All done"
-
-#Gnome Tweaks:
-#Workspaces: Static 1
-#Windows: Minimise
-#Fonts: Window Titles Roboto Bold 11, Interface Roboto Regular 11
 
