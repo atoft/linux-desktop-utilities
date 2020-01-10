@@ -19,7 +19,7 @@ Here's what to do instead:
 - Run `sudo nvidia-xconfig`.
 - Run `nvidia-settings`.
   - In the `X Server Display Configuration`, for each display, click
-    `Advanced...` and check `Force Composition Pipeline`.
+    `Advanced...` and tick `Force Composition Pipeline`.
   - Press `Apply` and check it looks okay.
   - Click `Save to X Configuration File` and choose `/etc/X11/xorg.conf`.
 - Log out and log back in.
