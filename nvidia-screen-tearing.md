@@ -10,12 +10,13 @@ nvidia-settings --assign CurrentMetaMode="nvidia-auto-select +0+0 { ForceComposi
 ```
 
 Based on https://unix.stackexchange.com/a/550695 and 
-https://unix.stackexchange.com/a/550695 it should be possible to do for 
-multiple monitors, from the command-line, but I haven't been able to find the 
-correct input to `nvidia-settings -a` to work for my setup. 
+https://www.reddit.com/r/archlinux/comments/441uig/video_tearing_with_nvidia_gtx_770_and_dual/ 
+it should be possible to do for multiple monitors, from the command-line, but 
+I haven't been able to find the correct input to `nvidia-settings -a` to work 
+for my setup. 
 
 Here's what to do instead:
-- Run `sudo nvidia-xorg`.
+- Run `sudo nvidia-xconfig`.
 - Run `nvidia-settings`.
   - In the `X Server Display Configuration`, for each display, click
     `Advanced...` and check `Force Composition Pipeline`.
