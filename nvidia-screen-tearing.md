@@ -1,5 +1,4 @@
-# Force v-sync to stop screen-tearing with nVidia graphics drivers.
-# Based on , supports multiple monitors.
+# Fixing screen-tearing on Linux with nVidia drivers
 
 With a single monitor, it is possible to fix screen-tearing by running the 
 following script on startup:
