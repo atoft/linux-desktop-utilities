@@ -17,8 +17,16 @@ sudo apt purge -y ubuntu-web-launchers
 echo "Installing CLion"
 sudo snap install --classic clion
 
+echo "Installing Flatpak"
+sudo apt-get install -y -q flatpak
+sudo apt-get install -y -q gnome-software-plugin-flatpak
+flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
+
 echo "Installing Spotify"
-sudo snap install spotify
+flatpak install flathub com.spotify.Client
+
+echo "Installing GIMP"
+sudo apt-get install -y -q gimp
 
 echo "Installing Steam"
 sudo apt-get install -y -q steam-installer
