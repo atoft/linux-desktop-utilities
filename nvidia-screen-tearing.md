@@ -25,3 +25,6 @@ Here's what to do instead:
 - Log out and log back in.
 - To confirm the fix is applied, run `nvidia-settings -q CurrentMetaMode -t` 
   and check for `ForceCompositionPipeline=On` for each display.
+
+## Fix tearing when scrolling and in video in Firefox
+In addition to the above fix, go to `about:config` and set `layers.acceleration.force-enabled = true`.
