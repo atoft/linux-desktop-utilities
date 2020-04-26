@@ -20,7 +20,7 @@ sudo apt-get install -y -q gnome-software-plugin-flatpak
 flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
 
 echo "Installing Spotify"
-flatpak install flathub com.spotify.Client
+flatpak install -y flathub com.spotify.Client
 
 echo "Installing GIMP"
 sudo apt-get install -y -q gimp
@@ -32,7 +32,7 @@ echo "Installing VLC Media Player"
 sudo apt-get install -y -q vlc
 
 echo "Installling Apostrophe"
-flatpak install flathub org.gnome.gitlab.somas.Apostrophe
+flatpak install -y flathub org.gnome.gitlab.somas.Apostrophe
 
 echo "Fixing Calculator integration"
 snap remove gnome-calculator
