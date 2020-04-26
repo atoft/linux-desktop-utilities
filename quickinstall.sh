@@ -8,11 +8,8 @@ sudo apt-get update -y -q
 echo "Installing default GNOME"
 sudo apt-get install -y -q gnome-session
 
-echo "Using the default GNOME GDM"
-sudo update-alternatives --set gdm3.css /usr/share/gnome-shell/theme/gnome-shell.css 
-
-echo "Removing the Amazon launcher"
-sudo apt purge -y ubuntu-web-launchers 
+echo "Using the default GNOME GDM theme (login skin)"
+sudo update-alternatives --set gdm3-theme.gresource /usr/share/gnome-shell/gnome-shell-theme.gresource
 
 echo "Installing CLion"
 sudo snap install --classic clion
