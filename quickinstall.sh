@@ -34,6 +34,9 @@ sudo apt-get install -y -q steam-installer
 echo "Installing VLC Media Player"
 sudo apt-get install -y -q vlc
 
+echo "Installling Apostrophe"
+flatpak install flathub org.gnome.gitlab.somas.Apostrophe
+
 echo "Fixing Calculator integration"
 snap remove gnome-calculator
 sudo apt-get install -y -q gnome-calculator
