@@ -2,6 +2,11 @@
 
 # Quickly install my frequently used software
 
+echo "Adding Syncthing repository"
+curl -s https://syncthing.net/release-key.txt | sudo apt-key add -
+
+echo "deb https://apt.syncthing.net/ syncthing stable" | sudo tee /etc/apt/sources.list.d/syncthing.list
+
 echo "Updating Repository List"
 sudo apt-get update -y -q
 
@@ -33,6 +38,12 @@ sudo apt-get install -y -q vlc
 
 echo "Installling Apostrophe"
 flatpak install -y flathub org.gnome.gitlab.somas.Apostrophe
+
+echo "Installing Syncthing"
+sudo apt-get install -y -q syncthing
+
+echo "Installing GNOME Web"
+sudo apt-get install -y -q epiphany-browser
 
 echo "Applying a nice wallpaper"
 # Without sudo so we get the user's home folder and the file isn't owned by root.
