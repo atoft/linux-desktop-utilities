@@ -34,10 +34,6 @@ sudo apt-get install -y -q vlc
 echo "Installling Apostrophe"
 flatpak install -y flathub org.gnome.gitlab.somas.Apostrophe
 
-echo "Fixing Calculator integration"
-snap remove gnome-calculator
-sudo apt-get install -y -q gnome-calculator
-
 echo "Applying a nice wallpaper"
 # Without sudo so we get the user's home folder and the file isn't owned by root.
 wget https://github.com/atoft/wallpaper/raw/master/wallpaper.png -P ~/Pictures
