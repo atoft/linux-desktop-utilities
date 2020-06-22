@@ -42,6 +42,9 @@ flatpak install -y flathub org.gnome.gitlab.somas.Apostrophe
 echo "Installing Syncthing"
 sudo apt-get install -y -q syncthing
 
+echo "Run Syncthing on startup"
+systemctl --user enable syncthing.service
+
 echo "Installing GNOME Web"
 sudo apt-get install -y -q epiphany-browser
 
