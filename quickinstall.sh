@@ -51,6 +51,9 @@ sudo apt-get install -y -q epiphany-browser
 echo "Installing Geary"
 flatpak install -y flathub org.gnome.Geary
 
+echo "Installing Vim"
+sudo apt-get install -y -q vim
+
 echo "Applying a nice wallpaper"
 # Without sudo so we get the user's home folder and the file isn't owned by root.
 wget https://github.com/atoft/wallpaper/raw/master/wallpaper.png -P ~/Pictures
