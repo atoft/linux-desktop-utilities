@@ -33,6 +33,15 @@
 
 (use-package treemacs-projectile)
 
+;; Company mode
+(use-package company)
+
+;; C++
+(setq c-default-style "bsd")
+(setq-default c-basic-offset 4)
+(add-hook 'c++-mode-hook #'display-line-numbers-mode)
+
+
 ;; LSP mode:
 (setq lsp-keymap-prefix "C-l")
 
