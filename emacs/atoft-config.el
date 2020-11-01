@@ -17,8 +17,9 @@
  
 (package-initialize)
 (unless (package-installed-p 'use-package)
+  (package-install 'use-package))
+
 (package-refresh-contents)
-(package-install 'use-package))
 
 ;; Themes and visuals
 (use-package solarized-theme
@@ -72,15 +73,19 @@
 (setq-default c-basic-offset 4)
 (add-hook 'prog-mode-hook #'display-line-numbers-mode)
 
+;; Flycheck (required for LSP)
+(use-package flycheck
+  :ensure t)
 
 ;; LSP mode:
 (use-package lsp-mode
-  :ensure t)
+  :ensure t
+  :config
+  ;; Support cross-file rename for C++ in LSP.
+  (setq lsp-clients-clangd-args '("-cross-file-rename"))
+  (define-key lsp-mode-map (kbd "C-l") lsp-command-map))
 
 (setq lsp-keymap-prefix "C-l")
-
-;; Support cross-file rename for C++ in LSP.
-(setq lsp-clients-clangd-args '("-cross-file-rename")) 
 
 (add-hook 'c-mode-hook 'lsp)
 (add-hook 'c++-mode-hook 'lsp)
