@@ -1,5 +1,11 @@
 					; .emacs config
 
+;; Uncomment to always refresh packages.
+;; (package-refresh-contents)
+
+;; Start maximised
+(add-to-list 'default-frame-alist '(fullscreen . maximized))
+
 ;; Save backups to temp directory:
 (setq backup-directory-alist
     `((".*" . ,temporary-file-directory)))
@@ -18,8 +24,6 @@
 (package-initialize)
 (unless (package-installed-p 'use-package)
   (package-install 'use-package))
-
-(package-refresh-contents)
 
 ;; Themes and visuals
 (use-package solarized-theme
@@ -45,6 +49,7 @@
                     :overline nil
                     :underline nil)
 
+;; Highlight the selected line
 (global-hl-line-mode t)
 
 ;; Tree view
@@ -67,6 +72,25 @@
 ;; Company mode
 (use-package company
   :ensure t)
+
+;; Dashboard
+(use-package dashboard
+  :ensure t
+  :config
+  (dashboard-setup-startup-hook))
+
+(setq dashboard-startup-banner 'logo)
+
+(setq dashboard-items '((projects . 5)
+                        (recents  . 5)
+                        (agenda . 5)))
+
+(setq dashboard-set-footer nil)
+(setq dashboard-set-heading-icons t)
+(setq dashboard-set-file-icons t)
+
+;; Wrap long lines on the dashboard
+(add-hook 'dashboard-mode-hook #'visual-line-mode)
 
 ;; C++
 (setq c-default-style "bsd")
