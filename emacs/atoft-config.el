@@ -92,10 +92,13 @@
 ;; Wrap long lines on the dashboard
 (add-hook 'dashboard-mode-hook #'visual-line-mode)
 
+;; Programming
+(setq-default truncate-lines t)
+(add-hook 'prog-mode-hook #'display-line-numbers-mode)
+
 ;; C++
 (setq c-default-style "bsd")
 (setq-default c-basic-offset 4)
-(add-hook 'prog-mode-hook #'display-line-numbers-mode)
 
 ;; Flycheck (required for LSP)
 (use-package flycheck
