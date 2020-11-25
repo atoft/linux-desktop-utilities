@@ -5,6 +5,6 @@ An easy way to mount other disk drives (e.g Windows and shared NTFS drives) in U
 - Go to Cog > Edit Mount Options.
 - Uncheck User Session Defaults. 
 - Give a friendly Display Name. 
+- For Identify As, choose the `by-label` option.
 - Specify the mount point as `/home/your-username/your-drivename`.
-- For Identify As, choose the by-label option.
 - Reboot.
