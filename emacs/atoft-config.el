@@ -67,7 +67,10 @@
 (define-key projectile-mode-map (kbd "M-p") 'projectile-command-map)
 
 (use-package treemacs-projectile
+  :after treemacs projectile
   :ensure t)
+
+(global-set-key (kbd "C-x t") #'treemacs)
 
 ;; Company mode
 (use-package company
