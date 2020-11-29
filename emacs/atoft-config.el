@@ -161,6 +161,14 @@
 ;; Use visual line wrapping.
 (add-hook 'markdown-mode-hook #'visual-line-mode)
 
+;; Limit the width of the text in Markdown-mode, similar to the Apostrophe editor.
+(use-package visual-fill-column
+  :ensure t
+  :config
+  (setq-default visual-fill-column-center-text t))
+
+(add-hook 'markdown-mode-hook #'visual-fill-column-mode)
+
 ;; Org-mode
 ;; Visual line wrapping
 (add-hook 'org-mode-hook #'visual-line-mode)
