@@ -76,6 +76,10 @@
 (use-package company
   :ensure t)
 
+;; ag search
+(use-package ag
+  :ensure t)
+
 ;; Dashboard
 (use-package dashboard
   :ensure t
@@ -97,6 +101,7 @@
 
 ;; Programming
 (setq-default truncate-lines t)
+(setq-default column-number-mode t)
 (add-hook 'prog-mode-hook #'display-line-numbers-mode)
 
 ;; C++
