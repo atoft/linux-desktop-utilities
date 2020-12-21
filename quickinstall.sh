@@ -36,9 +36,6 @@ sudo apt-get install -y -q steam-installer
 echo "Installing VLC Media Player"
 sudo apt-get install -y -q vlc
 
-echo "Installling Apostrophe"
-flatpak install -y flathub org.gnome.gitlab.somas.Apostrophe
-
 echo "Installing Syncthing"
 sudo apt-get install -y -q syncthing
 
@@ -51,8 +48,8 @@ sudo apt-get install -y -q epiphany-browser
 echo "Installing Geary"
 flatpak install -y flathub org.gnome.Geary
 
-echo "Installing Vim"
-sudo apt-get install -y -q vim
+echo "Installing Emacs"
+snap install -y -q emacs
 
 echo "Applying a nice wallpaper"
 # Without sudo so we get the user's home folder and the file isn't owned by root.
