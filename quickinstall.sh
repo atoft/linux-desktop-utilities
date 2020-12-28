@@ -13,6 +13,9 @@ sudo apt-get update -y -q
 echo "Installing default GNOME"
 sudo apt-get install -y -q gnome-session
 
+echo "Installing GNOME fonts"
+sudo apt-get install -y -q fonts-cantarell
+
 echo "Using the default GNOME GDM theme (login skin)"
 sudo update-alternatives --set gdm3-theme.gresource /usr/share/gnome-shell/gnome-shell-theme.gresource
 
