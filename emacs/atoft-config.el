@@ -39,7 +39,8 @@
 
 (use-package doom-modeline
   :ensure t
-  :hook (after-init . doom-modeline-mode))
+  :hook (after-init . doom-modeline-mode)
+  :config (setq doom-modeline-height 32))
 
 (set-face-attribute 'mode-line nil
                     :overline nil
@@ -125,30 +126,39 @@
 (add-hook 'c-mode-hook 'lsp)
 (add-hook 'c++-mode-hook 'lsp)
 
-;;(with-eval-after-load 'lsp-mode
-;;  (add-hook 'lsp-mode-hook #'lsp-enable-which-key-integration)
-;;  (require 'dap-cpptools)
-;;  (yas-global-mode))
-
-;; optionally
 (use-package lsp-ui
   :ensure t
   :commands lsp-ui-mode)
-;; if you are helm user
-;;(use-package helm-lsp :commands helm-lsp-workspace-symbol)
-;; if you are ivy user
-;;(use-package lsp-ivy :commands lsp-ivy-workspace-symbol)
-;;(use-package lsp-treemacs :commands lsp-treemacs-errors-list)
 
-;; optionally if you want to use debugger
-;;(use-package dap-mode)
-;; (use-package dap-LANGUAGE) to load the dap adapter for your language
+;; Add breakpoint
+(global-set-key (kbd "C-x g b") #'gud-break)
 
-;; optional if you want which-key integration
-;;(use-package which-key
-;;    :config
-;;    (which-key-mode))
+;; Remove breakpoint
+(global-set-key (kbd "C-x g r") #'gud-remove)
 
+;; In the gud buffer, interrupt the debugged program
+(global-set-key (kbd "C-x g i") #'comint-interrupt-subjob)
+
+;; Continue execution
+(global-set-key (kbd "C-x g c") #'gud-cont)
+
+;; Go to inner stack frame
+(global-set-key (kbd "C-x g u") #'gud-down)
+
+;; Go to outer stack frame
+(global-set-key (kbd "C-x g d") #'gud-up)
+
+;; Start debugging
+(global-set-key (kbd "<f5>") #'gdb)
+
+;; Step forward
+(global-set-key (kbd "<f6>") #'gud-next)
+
+;; Step in
+(global-set-key (kbd "<f7>") #'gud-step)
+
+;; Step out
+(global-set-key (kbd "<f8>") #'gud-finish)
 
 ;; Force spaces for TAB
 (progn
