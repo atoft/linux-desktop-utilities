@@ -12,6 +12,9 @@
 (setq auto-save-file-name-transforms
      `((".*" ,temporary-file-directory t)))
 
+(setq auto-save-default nil)
+(setq create-lockfiles nil)
+
 ;; Standard copy-paste:
 (cua-mode t)
 
@@ -104,6 +107,12 @@
 (setq-default truncate-lines t)
 (setq-default column-number-mode t)
 (add-hook 'prog-mode-hook #'display-line-numbers-mode)
+
+(use-package helm
+  :ensure t)
+
+(use-package helm-ag
+  :ensure t)
 
 ;; C++
 (setq c-default-style "bsd")
