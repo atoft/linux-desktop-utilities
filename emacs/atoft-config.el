@@ -84,6 +84,9 @@
 (use-package ag
   :ensure t)
 
+(use-package ivy
+  :ensure t)
+
 ;; Dashboard
 (use-package dashboard
   :ensure t
@@ -112,6 +115,10 @@
   :ensure t)
 
 (use-package helm-ag
+  :ensure t)
+
+;; Zig
+(use-package zig-mode
   :ensure t)
 
 ;; C++
