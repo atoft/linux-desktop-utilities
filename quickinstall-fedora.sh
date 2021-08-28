@@ -31,6 +31,9 @@ flatpak install -y flathub org.gimp.GIMP
 echo "Installing Spotify"
 flatpak install -y flathub com.spotify.Client
 
+echo "Installing Password Safe"
+flatpak install -y flathub org.gnome.PasswordSafe
+
 echo "Applying a nice wallpaper"
 # Without sudo so we get the user's home folder and the file isn't owned by root.
 wget https://github.com/atoft/wallpaper/raw/master/wallpaper.png -P ~/Pictures
