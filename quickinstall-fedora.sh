@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Quickly install my frequently used software
-# Tested on Fedora 33
+# Tested on Fedora 34
 
 echo "Updating packages"
 sudo dnf -y update
@@ -14,7 +14,10 @@ echo "Setting up Flatpak"
 flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
 
 echo "Installing Emacs"
-flatpak install -y flathub org.gnu.emacs
+sudo dnf -y install emacs
+
+echo "Installing Steam"
+flatpak install -y flathub com.valvesoftware.Steam
 
 echo "Installing GNOME Web"
 flatpak install -y flathub org.gnome.Epiphany
