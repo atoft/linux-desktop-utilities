@@ -16,9 +16,6 @@ flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flat
 echo "Installing Emacs"
 sudo dnf -y install emacs
 
-echo "Installing Steam"
-flatpak install -y flathub com.valvesoftware.Steam
-
 echo "Installing GNOME Web"
 flatpak install -y flathub org.gnome.Epiphany
 
