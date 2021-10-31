@@ -31,6 +31,10 @@ flatpak install -y flathub com.spotify.Client
 echo "Installing Password Safe"
 flatpak install -y flathub org.gnome.PasswordSafe
 
+echo "Fix choppy video in Firefox"
+sudo dnf install -y https://mirrors.rpmfusion.org/free/fedora/rpmfusion-free-release-$(rpm -E %fedora).noarch.rpm
+sudo dnf install -y ffmpeg-libs
+
 echo "Applying a nice wallpaper"
 # Without sudo so we get the user's home folder and the file isn't owned by root.
 wget https://github.com/atoft/wallpaper/raw/master/wallpaper.png -P ~/Pictures
