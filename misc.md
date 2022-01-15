@@ -11,11 +11,17 @@
 
 # Troubleshooting
 Things that have helped me fix issues in the past.
+## Fedora
+### No audio on first boot
+https://superuser.com/questions/1688412/no-sound-in-fedora-35-even-though-everything-looks-good
 
-## Cursed apt update
+`systemctl --user enable --now wireplumber`
+
+## Ubuntu
+### Cursed apt update
 Some things that have randomly gone wrong on startup, apparently after a bad update.
 
-### Missing nvidia graphics support, low screen resolution, etc.
+#### Missing nvidia graphics support, low screen resolution, etc.
 - Check Logs (dmesg or Logs in GUI) for "NVRM: API mismatch"
   - Try booting an older kernel from grub. (`Advanced options for...`)
   - Run full apt update/upgrade.
@@ -23,7 +29,7 @@ Some things that have randomly gone wrong on startup, apparently after a bad upd
   - Restart with the new kernel.
   - Reinstall drivers based on recommends from `ubuntu-drivers list` or equivalent.
 
-### Missing ethernet
+#### Missing ethernet
 - Check for name of ethernet device with `lspci`.
   - Try removing the relevant kernel modules, and re-adding as mentioned in https://askubuntu.com/a/1242028.
   - May need to shutdown and turn back on (from a cold start, not reboot) to see results:  https://bugs.launchpad.net/ubuntu/+source/linux-signed/+bug/1876593.
