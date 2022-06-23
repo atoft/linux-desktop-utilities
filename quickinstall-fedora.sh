@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Quickly install my frequently used software
-# Tested on Fedora 34
+# Tested on Fedora 36
 
 echo "Updating packages"
 sudo dnf -y update
@@ -28,8 +28,8 @@ flatpak install -y flathub org.gimp.GIMP
 echo "Installing Spotify"
 flatpak install -y flathub com.spotify.Client
 
-echo "Installing Password Safe"
-flatpak install -y flathub org.gnome.PasswordSafe
+echo "Installing Secrets"
+flatpak install -y flathub org.gnome.World.Secrets
 
 echo "Fix choppy video in Firefox"
 sudo dnf install -y https://mirrors.rpmfusion.org/free/fedora/rpmfusion-free-release-$(rpm -E %fedora).noarch.rpm
