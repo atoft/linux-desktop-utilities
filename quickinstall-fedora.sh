@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Quickly install my frequently used software
-# Tested on Fedora 36
+# Tested on Fedora 37
 
 echo "Updating packages"
 sudo dnf -y update
@@ -9,6 +9,9 @@ sudo dnf -y update
 echo "Installing Syncthing"
 sudo dnf -y install syncthing
 systemctl --user enable --now syncthing.service
+
+echo "Installing Rclone"
+sudo dnf -y install rclone
 
 echo "Setting up Flatpak"
 flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
