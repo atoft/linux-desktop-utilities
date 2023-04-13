@@ -16,12 +16,11 @@ I haven't been able to find the correct input to `nvidia-settings -a` to work
 for my setup. 
 
 Here's what to do instead:
-- Run `sudo nvidia-xconfig`.
-- Run `nvidia-settings`.
+- Run `sudo nvidia-settings`.
   - In the `X Server Display Configuration`, for each display, click
     `Advanced...` and tick `Force Composition Pipeline`.
   - Press `Apply` and check it looks okay.
-  - Click `Save to X Configuration File` and choose `/etc/X11/xorg.conf`.
+  - Click `Save to X Configuration File` and choose `/etc/X11/xorg.conf`. (Running as sudo was needed for this to work.)
 - Log out and log back in.
 - To confirm the fix is applied, run `nvidia-settings -q CurrentMetaMode -t` 
   and check for `ForceCompositionPipeline=On` for each display.
